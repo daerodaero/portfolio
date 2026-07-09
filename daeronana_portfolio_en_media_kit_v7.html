@@ -1,0 +1,1932 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daero & Nana | Channel Portfolio</title>
+  <meta name="description" content="Daero & Nana channel portfolio: a working couple creating realistic, high-value travel content.">
+  <style>
+    :root {
+      --sand: #f5efe6;
+      --paper: #fffaf3;
+      --cream: #fffdf8;
+      --ink: #2f2a24;
+      --muted: #786c61;
+      --line: #e8dccd;
+      --terra: #c76f50;
+      --terra-dark: #9f4f38;
+      --sage: #6f806c;
+      --sky: #dfe9ed;
+      --shadow: 0 18px 50px rgba(65, 47, 31, 0.12);
+      --radius: 8px;
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a.button {
+      min-height: 44px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    button:hover,
+    a.button:hover {
+      transform: translateY(-1px);
+    }
+
+    .site-shell {
+      width: 100%;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(245, 239, 230, 0.95) 0%, rgba(255, 250, 243, 0.92) 46%, #fffdf8 100%);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(232, 220, 205, 0.78);
+      background: rgba(255, 250, 243, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 48px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: block;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #f6d5a6;
+      border: 2px solid rgba(255, 255, 255, 0.88);
+      box-shadow: 0 8px 20px rgba(199, 111, 80, 0.28);
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      padding: 9px 12px;
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-link:hover {
+      background: rgba(199, 111, 80, 0.08);
+      color: var(--ink);
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .segmented {
+      display: inline-grid;
+      grid-auto-flow: column;
+      gap: 3px;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .segmented button,
+    .segmented a {
+      min-width: 44px;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .segmented button.is-active,
+    .segmented a.is-active {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 7px 18px rgba(47, 42, 36, 0.14);
+    }
+
+    main {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(390px, 0.98fr);
+      gap: 54px;
+      align-items: center;
+      padding: 54px 0 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--terra-dark);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--terra);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+      text-wrap: pretty;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(44px, 6vw, 82px);
+      line-height: 0.95;
+      letter-spacing: 0;
+      white-space: nowrap;
+      text-wrap: nowrap;
+    }
+
+    .hero-copy {
+      max-width: 610px;
+      margin-bottom: 28px;
+      color: #4b4036;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.42;
+    }
+
+    .hero-subcopy {
+      max-width: 620px;
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 17px;
+      white-space: nowrap;
+    }
+
+    .button.primary {
+      background: var(--terra);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(199, 111, 80, 0.27);
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 590px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--sky);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 590px;
+      display: block;
+      object-fit: cover;
+      object-position: 58% bottom;
+    }
+
+    .photo-placeholder {
+      position: absolute;
+      inset: 18px;
+      display: grid;
+      place-items: center;
+      border: 1.5px dashed rgba(47, 42, 36, 0.24);
+      border-radius: var(--radius);
+      color: rgba(47, 42, 36, 0.54);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.16)),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.24) 0 10px, rgba(255, 255, 255, 0.06) 10px 20px);
+      font-size: 14px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    section {
+      padding: 78px 0;
+      border-top: 1px solid rgba(232, 220, 205, 0.82);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.45fr) minmax(0, 0.55fr);
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      margin-bottom: 8px;
+      color: var(--terra-dark);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 8px 22px rgba(65, 47, 31, 0.06);
+    }
+
+    .stat-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .stat-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .info-card,
+    .content-card,
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: 0 8px 22px rgba(65, 47, 31, 0.06);
+    }
+
+    .info-card {
+      padding: 22px;
+      min-height: 185px;
+    }
+
+    .info-card h3 {
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .info-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .insight-grid,
+    .funnel-grid,
+    .case-grid,
+    .offer-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .insight-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-bottom: 24px;
+    }
+
+    .funnel-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .case-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .offer-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .insight-card,
+    .funnel-card,
+    .case-card,
+    .offer-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: 0 8px 22px rgba(65, 47, 31, 0.06);
+    }
+
+    .insight-card {
+      padding: 18px;
+    }
+
+    .insight-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .insight-card span,
+    .metric-note {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .audience-detail-grid,
+    .reaction-grid,
+    .performance-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .audience-detail-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 24px;
+    }
+
+    .audience-detail-card,
+    .reaction-card,
+    .performance-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: 0 8px 22px rgba(65, 47, 31, 0.06);
+    }
+
+    .audience-detail-card {
+      padding: 18px;
+    }
+
+    .audience-detail-card h3 {
+      margin-bottom: 12px;
+      font-size: 17px;
+    }
+
+    .rank-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .rank-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(232, 220, 205, 0.56);
+    }
+
+    .rank-list li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .rank-list b {
+      color: var(--ink);
+    }
+
+    .reaction-grid {
+      display: flex;
+      grid-template-columns: none;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 2px 4px 14px;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: rgba(199, 111, 80, 0.44) rgba(232, 220, 205, 0.42);
+    }
+
+    .reaction-carousel {
+      position: relative;
+    }
+
+    .reaction-controls {
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+    }
+
+    .reaction-control {
+      pointer-events: auto;
+      width: 46px;
+      height: 46px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      border-radius: 999px;
+      background: rgba(42, 34, 29, 0.44);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 24px rgba(65, 47, 31, 0.16);
+    }
+
+    .reaction-control:hover {
+      color: #fff;
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+    }
+
+    .reaction-card {
+      flex: 0 0 min(286px, 82vw);
+      padding: 16px;
+      min-height: auto;
+      display: grid;
+      align-content: start;
+      gap: 16px;
+      scroll-snap-align: start;
+    }
+
+    .reaction-shot {
+      min-height: auto;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(232, 220, 205, 0.8);
+      border-radius: calc(var(--radius) - 4px);
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .reaction-shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .reaction-card p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.5;
+    }
+
+    .performance-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .performance-card {
+      padding: 18px;
+    }
+
+    .performance-thumb {
+      width: min(48%, 150px);
+      aspect-ratio: 9 / 16;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 16px;
+      border: 1px dashed rgba(199, 111, 80, 0.42);
+      border-radius: calc(var(--radius) - 4px);
+      background: rgba(245, 239, 230, 0.68);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.35;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .performance-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .performance-thumb.has-image {
+      border-style: solid;
+      background: #eee;
+    }
+
+    .performance-card h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .performance-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .performance-actions {
+      margin-top: 14px;
+    }
+
+    .performance-actions .button {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+
+    .button.is-disabled {
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .performance-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .performance-meta span {
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(245, 239, 230, 0.76);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .funnel-card {
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .funnel-step {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      background: var(--terra);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(199, 111, 80, 0.22);
+    }
+
+    .funnel-card h3,
+    .case-card h3,
+    .offer-card h3 {
+      margin-bottom: 9px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .funnel-card p,
+    .case-card p,
+    .offer-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .case-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .case-media {
+      position: relative;
+      width: min(58%, 210px);
+      aspect-ratio: 9 / 16;
+      min-height: 0;
+      margin: 22px auto;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #eadfce;
+      box-shadow: 0 10px 28px rgba(65, 47, 31, 0.08);
+    }
+
+    .case-card {
+      background: linear-gradient(180deg, rgba(245, 239, 230, 0.76) 0 48%, rgba(255, 255, 255, 0.72) 48% 100%);
+    }
+
+    .case-card .photo-placeholder {
+      inset: 10px;
+      font-size: 13px;
+      line-height: 1.35;
+      word-break: keep-all;
+    }
+
+    .case-body {
+      padding: 18px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .metric {
+      padding: 10px;
+      border-radius: var(--radius);
+      background: rgba(245, 239, 230, 0.66);
+    }
+
+    .metric b {
+      display: block;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .offer-card {
+      padding: 22px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 8px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      margin-right: 8px;
+      color: var(--terra-dark);
+      font-weight: 900;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .content-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 430px;
+    }
+
+    .thumb-slot {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      min-height: 230px;
+      background: #eadfce;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .thumb-slot .photo-placeholder {
+      inset: 12px;
+      font-size: 13px;
+    }
+
+    .content-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 16px;
+    }
+
+    .tag {
+      align-self: flex-start;
+      margin-bottom: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(111, 128, 108, 0.14);
+      color: var(--sage);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .content-body h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .content-body p {
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .content-body .button {
+      width: 100%;
+      margin-top: auto;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    .brand-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      align-items: center;
+    }
+
+    .brand-item {
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 7px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: #54483d;
+      font-size: 12px;
+      font-weight: 900;
+      text-align: left;
+    }
+
+    .brand-item img {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .brand-item img.logo-wide {
+      width: 38px;
+      flex-basis: 38px;
+      border-radius: 0;
+    }
+
+    .brand-item span {
+      min-width: 0;
+      line-height: 1.25;
+    }
+
+    .partner-list {
+      margin: -8px 0 28px;
+      padding: 18px 0 4px;
+      border-top: 1px solid rgba(232, 220, 205, 0.72);
+      border-bottom: 1px solid rgba(232, 220, 205, 0.72);
+    }
+
+    .partner-list-title {
+      margin: 0 0 12px;
+      color: var(--terra-dark);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 28px;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 18px 50px rgba(47, 42, 36, 0.18);
+    }
+
+    .contact-panel h2 {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: clamp(28px, 3.5vw, 42px);
+    }
+
+    .contact-panel p {
+      max-width: 650px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .contact-panel .button {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    footer {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 26px 0 44px;
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    body.preview-mobile .nav,
+    body.preview-mobile main,
+    body.preview-mobile footer {
+      width: min(420px, calc(100% - 28px));
+    }
+
+    body.preview-mobile .nav {
+      min-height: auto;
+      padding: 10px 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    body.preview-mobile .nav-links,
+    body.preview-mobile .toolbar {
+      justify-content: center;
+    }
+
+    body.preview-mobile .brand {
+      gap: 8px;
+      font-size: 15px;
+    }
+
+    body.preview-mobile .brand-mark {
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+    }
+
+    body.preview-mobile .nav-links {
+      gap: 4px;
+    }
+
+    body.preview-mobile .nav-link {
+      padding: 5px 10px;
+      font-size: 13px;
+    }
+
+    body.preview-mobile .toolbar {
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    body.preview-mobile .segmented {
+      width: auto;
+      min-width: 0;
+    }
+
+    body.preview-mobile .segmented button,
+    body.preview-mobile .segmented a {
+      min-width: 48px;
+      min-height: 30px;
+      padding: 5px 9px;
+      font-size: 12px;
+    }
+
+    body.preview-mobile .hero {
+      min-height: auto;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 34px 0 26px;
+    }
+
+    body.preview-mobile h1 {
+      font-size: 44px;
+      line-height: 1;
+    }
+
+    body.preview-mobile .hero-copy {
+      margin-bottom: 22px;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    body.preview-mobile .hero-subcopy {
+      margin-bottom: 26px;
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    body.preview-mobile .hero-visual {
+      min-height: 0;
+      aspect-ratio: 4 / 5;
+    }
+
+    body.preview-mobile .hero-photo {
+      min-height: 0;
+      height: 100%;
+      object-position: center;
+    }
+
+    body.preview-mobile section {
+      padding: 56px 0;
+    }
+
+    body.preview-mobile .section-head {
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    body.preview-mobile .section-label {
+      font-size: 12px;
+    }
+
+    body.preview-mobile h2 {
+      font-size: 33px;
+      line-height: 1.18;
+    }
+
+    body.preview-mobile .section-head p {
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    body.preview-mobile .stat-card,
+    body.preview-mobile .insight-card,
+    body.preview-mobile .info-card,
+    body.preview-mobile .funnel-card,
+    body.preview-mobile .offer-card,
+    body.preview-mobile .audience-detail-card,
+    body.preview-mobile .reaction-card,
+    body.preview-mobile .performance-card {
+      padding: 18px;
+      min-height: auto;
+    }
+
+    body.preview-mobile .stat-card strong,
+    body.preview-mobile .insight-card strong {
+      font-size: 25px;
+      line-height: 1.15;
+    }
+
+    body.preview-mobile .info-card h3,
+    body.preview-mobile .funnel-card h3,
+    body.preview-mobile .case-card h3,
+    body.preview-mobile .offer-card h3,
+    body.preview-mobile .performance-card h3 {
+      font-size: 17px;
+      line-height: 1.38;
+    }
+
+    body.preview-mobile .info-card p,
+    body.preview-mobile .funnel-card p,
+    body.preview-mobile .case-card p,
+    body.preview-mobile .offer-card p,
+    body.preview-mobile .performance-card p,
+    body.preview-mobile .content-body p {
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    body.preview-mobile .section-head,
+    body.preview-mobile .stats-grid,
+    body.preview-mobile .intro-grid,
+    body.preview-mobile .content-grid,
+    body.preview-mobile .insight-grid,
+    body.preview-mobile .funnel-grid,
+    body.preview-mobile .case-grid,
+    body.preview-mobile .offer-grid,
+    body.preview-mobile .audience-detail-grid,
+    body.preview-mobile .reaction-grid,
+    body.preview-mobile .performance-grid,
+    body.preview-mobile .contact-panel {
+      grid-template-columns: 1fr;
+    }
+
+    body.preview-mobile .content-card {
+      min-height: auto;
+    }
+
+    body.preview-mobile .thumb-slot {
+      aspect-ratio: 9 / 16;
+    }
+
+    body.preview-mobile .contact-panel {
+      align-items: stretch;
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        min-height: auto;
+        padding: 14px 0;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links,
+      .toolbar {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .section-head,
+      .stats-grid,
+      .intro-grid,
+      .insight-grid,
+      .funnel-grid,
+      .case-grid,
+      .offer-grid,
+      .audience-detail-grid,
+      .reaction-grid,
+      .performance-grid,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 38px;
+      }
+
+      .hero-visual {
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+      }
+
+      .hero-photo {
+        min-height: 0;
+        height: 100%;
+        object-position: center;
+      }
+
+      .content-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .brand-cloud {
+        gap: 10px 14px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav,
+      main,
+      footer {
+        width: min(100% - 28px, 420px);
+      }
+
+      .nav {
+        padding: 8px 0;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .brand {
+        gap: 7px;
+        font-size: 15px;
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+      }
+
+      .nav-links {
+        gap: 4px;
+        justify-content: center;
+      }
+
+      .nav-link {
+        padding: 5px 10px;
+        font-size: 13px;
+      }
+
+      .segmented button,
+      .segmented a {
+        min-height: 30px;
+        padding: 5px 9px;
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: 40px;
+        line-height: 1;
+      }
+
+      h2 {
+        font-size: 31px;
+        line-height: 1.18;
+      }
+
+      .hero-copy {
+        margin-bottom: 22px;
+        font-size: 17px;
+        line-height: 1.45;
+      }
+
+      .hero-subcopy,
+      .section-head p {
+        font-size: 15px;
+        line-height: 1.78;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+
+      .section-head {
+        gap: 18px;
+        margin-bottom: 24px;
+      }
+
+      .stat-card,
+      .insight-card,
+      .info-card,
+      .funnel-card,
+      .offer-card,
+      .audience-detail-card,
+      .reaction-card,
+      .performance-card {
+        padding: 18px;
+        min-height: auto;
+      }
+
+      .stat-card strong,
+      .insight-card strong {
+        font-size: 24px;
+        line-height: 1.15;
+      }
+
+      .info-card p,
+      .funnel-card p,
+      .case-card p,
+      .offer-card p,
+      .performance-card p,
+      .content-body p {
+        font-size: 14px;
+        line-height: 1.72;
+      }
+
+      .button-row,
+      .toolbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button-row .button {
+        width: 100%;
+      }
+
+      .segmented {
+        grid-auto-columns: 1fr;
+      }
+
+      .toolbar {
+        align-items: center;
+        gap: 8px;
+      }
+
+      .toolbar .segmented {
+        width: min(100%, 280px);
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 380px) {
+      .nav,
+      main,
+      footer {
+        width: calc(100% - 24px);
+      }
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .brand-mark {
+        width: 28px;
+        height: 28px;
+      }
+
+      .nav-link {
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+
+      .segmented button,
+      .segmented a {
+        min-width: 42px;
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+
+      .eyebrow {
+        gap: 7px;
+        font-size: 12px;
+      }
+
+      .eyebrow::before {
+        width: 26px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .hero {
+        padding-top: 30px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .hero-subcopy,
+      .section-head p {
+        font-size: 14px;
+        line-height: 1.76;
+      }
+
+      .button {
+        padding: 11px 14px;
+      }
+
+      .stat-card strong,
+      .insight-card strong {
+        font-size: 22px;
+      }
+
+      .brand-cloud {
+        gap: 10px 12px;
+      }
+
+      .brand-item {
+        font-size: 11px;
+      }
+
+      .contact-panel {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav" aria-label="Main menu">
+        <a class="brand" href="#top" aria-label="Daero & Nana home">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="assets/daeronana-logo.jpg" alt="">
+          </span>
+          <span>Daero & Nana</span>
+        </a>
+        <div class="nav-links" aria-label="Page sections">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#contents">Featured Work</a>
+          <a class="nav-link" href="#trust">Follower Trust</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
+        <div class="toolbar">
+          <div class="segmented" aria-label="Language selector">
+            <a href="daeronana_portfolio_ko_media_kit_v7.html">KR</a>
+            <a class="is-active" href="daeronana_portfolio_en_media_kit_v7.html" aria-current="page">EN</a>
+            <a href="daeronana_portfolio_jp_media_kit_v7.html">JP</a>
+          </div>
+          <div class="segmented" aria-label="Preview mode">
+            <button class="is-active" type="button" data-view="pc">PC</button>
+            <button type="button" data-view="mobile">Mobile</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">TRAVEL CREATOR PORTFOLIO</p>
+          <h1 id="hero-title">Daero & Nana</h1>
+          <p class="hero-copy">A working couple making realistic, high-value travel content</p>
+          <p class="hero-subcopy">
+            We introduce trips that feel realistic even in a busy everyday life.
+            Through practical budgets, a warm point of view, and couple travel content people want to try,
+            we connect destinations and brands in a natural way.
+          </p>
+          <div class="button-row">
+            <a class="button primary" href="mailto:dleogh888@naver.com">Contact for Collaboration</a>
+            <a class="button secondary" href="https://www.instagram.com/daero._.nana/" target="_blank" rel="noreferrer">View Instagram</a>
+            <a class="button secondary" href="https://blog.naver.com/dleogh888" target="_blank" rel="noreferrer">View Blog</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Daero & Nana hero photo">
+          <img class="hero-photo" src="assets/daeronana-hero-enhanced-v4.jpg" alt="Daero and Nana posing in Dotonbori, Osaka" loading="eager">
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <div class="section-head">
+          <div>
+            <p class="section-label">ABOUT CHANNEL</p>
+            <h2 id="about-title">More realistic travel, with a warmer point of view.</h2>
+          </div>
+          <p>
+            Daero & Nana creates travel content for people who want satisfying trips while saving time off and budget.
+            We connect couple travel reels, destination information, transition videos, and brand campaigns
+            with a friendly and approachable tone.
+          </p>
+        </div>
+        <div class="partner-list" id="partners" aria-label="Collaboration brand list">
+          <p class="partner-list-title">Selected Collaboration Brands</p>
+          <div class="brand-cloud">
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=dji.com" alt="" loading="lazy"><span>DJI</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=visa.com" alt="" loading="lazy"><span>Visa</span></div>
+            <div class="brand-item"><img class="logo-wide" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/JCB_logo.svg" alt="" loading="lazy"><span>JCB</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=unionpayintl.com" alt="" loading="lazy"><span>UnionPay</span></div>
+            <div class="brand-item"><img src="assets/kakaopay-icon.svg" alt="" loading="lazy"><span>KakaoPay</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=insta360.com" alt="" loading="lazy"><span>Insta360</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=samsung.com" alt="" loading="lazy"><span>Samsung Electronics</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=hanatour.com" alt="" loading="lazy"><span>Hanatour</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=klook.com" alt="" loading="lazy"><span>Klook</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=trip.com" alt="" loading="lazy"><span>Trip.com</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=skyscanner.com" alt="" loading="lazy"><span>Skyscanner</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=airbnb.com" alt="" loading="lazy"><span>Airbnb</span></div>
+            <div class="brand-item"><img class="logo-wide" src="https://upload.wikimedia.org/wikipedia/en/5/54/USJLogo2024.png" alt="" loading="lazy"><span>Universal Studios Japan</span></div>
+            <div class="brand-item"><img class="logo-wide" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/AEON_logo.svg" alt="" loading="lazy"><span>Aeon</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=donki.com" alt="" loading="lazy"><span>Don Quijote</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=ppih.co.jp" alt="" loading="lazy"><span>PPIH</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=discovertokushima.net" alt="" loading="lazy"><span>Tokushima Tourism</span></div>
+            <div class="brand-item"><img src="assets/seoul-logo.png" alt="Seoul Metropolitan Government logo" loading="lazy"><span>Seoul Metropolitan Government</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=myrealtrip.com" alt="" loading="lazy"><span>MyRealTrip</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=cathaypacific.com" alt="" loading="lazy"><span>Cathay Pacific</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=flypeach.com" alt="" loading="lazy"><span>Peach Aviation</span></div>
+            <div class="brand-item"><img src="assets/tway-logo.png" alt="T'way Air logo" loading="lazy"><span>T'way Air (Trinity Air)</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=gu-global.com" alt="" loading="lazy"><span>GU</span></div>
+            <div class="brand-item"><img src="assets/sk-telecom-logo.png" alt="" loading="lazy"><span>SK Telecom</span></div>
+            <div class="brand-item"><img class="logo-wide" src="assets/familymart-logo.png" alt="" loading="lazy"><span>FamilyMart Japan</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=meg-snow.com" alt="" loading="lazy"><span>Megmilk Snow Brand</span></div>
+            <div class="brand-item"><img src="https://www.google.com/s2/favicons?sz=64&domain=tokyobanana.jp" alt="" loading="lazy"><span>Grapestone (Tokyo Banana)</span></div>
+          </div>
+        </div>
+        <div class="stats-grid" aria-label="Channel performance">
+          <div class="stat-card">
+            <strong>98,000+</strong>
+            <span>Instagram Followers</span>
+          </div>
+          <div class="stat-card">
+            <strong>230K+</strong>
+            <span>Average Reel Views (latest 20 reels)</span>
+          </div>
+          <div class="stat-card">
+            <strong>13.69M+</strong>
+            <span>Highest Reel Views</span>
+          </div>
+        </div>
+        <div class="intro-grid">
+          <article class="info-card">
+            <h3>High-Value Travel</h3>
+            <p>We introduce travel experiences that feel worth the time and money, not simply the cheapest option.</p>
+          </article>
+          <article class="info-card">
+            <h3>Couple Content</h3>
+            <p>We capture the mood of each destination and our natural couple chemistry in short-form reels.</p>
+          </article>
+          <article class="info-card">
+            <h3>Brand Collaboration</h3>
+            <p>We create content for travel, payment, device, platform, and tourism-board campaigns.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="fit" aria-labelledby="fit-title">
+        <div class="section-head">
+          <div>
+            <p class="section-label">AUDIENCE FIT</p>
+            <h2 id="fit-title">An audience already preparing for travel.</h2>
+          </div>
+          <p>
+            Our content is more than a travel diary. It is built for people who save, share, and use travel information
+            while planning their next trip.
+          </p>
+        </div>
+        <div class="insight-grid">
+          <article class="insight-card">
+            <strong>98,000+</strong>
+            <span>Instagram Followers</span>
+          </article>
+          <article class="insight-card">
+            <strong>96%</strong>
+            <span>Korean follower share</span>
+          </article>
+          <article class="insight-card">
+            <strong>25-44</strong>
+            <span>Core age group</span>
+          </article>
+          <article class="insight-card">
+            <strong>71% / 29%</strong>
+            <span>Female / Male split</span>
+          </article>
+        </div>
+        <div class="audience-detail-grid" aria-label="Follower location details">
+          <article class="audience-detail-card">
+            <h3>Top Countries</h3>
+            <ul class="rank-list">
+              <li><span>South Korea</span><b>96%</b></li>
+              <li><span>Hong Kong</span><b>1.1%</b></li>
+              <li><span>United States</span><b>0.6%</b></li>
+              <li><span>Japan</span><b>0.4%</b></li>
+              <li><span>Australia</span><b>0.3%</b></li>
+            </ul>
+          </article>
+          <article class="audience-detail-card">
+            <h3>Top Cities</h3>
+            <ul class="rank-list">
+              <li><span>Seoul Metropolitan Government</span><b>18.9%</b></li>
+              <li><span>Busan</span><b>7%</b></li>
+              <li><span>Incheon</span><b>5.7%</b></li>
+              <li><span>Daegu</span><b>4.9%</b></li>
+              <li><span>Daejeon</span><b>2.9%</b></li>
+            </ul>
+          </article>
+        </div>
+        <div class="intro-grid">
+          <article class="info-card">
+            <h3>Travel Purchase Intent</h3>
+            <p>We naturally meet brands that travelers need while planning, from flights and stays to activities, payment services, and travel apps.</p>
+          </article>
+          <article class="info-card">
+            <h3>Save-Worthy Content</h3>
+            <p>We create tips, routes, filming ideas, and cost information that people want to save and revisit before a trip.</p>
+          </article>
+          <article class="info-card">
+            <h3>Trusted Couple-Creator Tone</h3>
+            <p>We deliver brand messages without exaggeration through a realistic couple-travel tone.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="conversion" aria-labelledby="conversion-title">
+        <div class="section-head">
+          <div>
+            <p class="section-label">CONVERSION STRATEGY</p>
+            <h2 id="conversion-title">From reach to saves, exploration, and inquiries.</h2>
+          </div>
+          <p>
+            The core value is not only views, but what people do after watching.
+            Daero & Nana can structure collaboration content to lead from reel reach to saves, shares, blog exploration,
+            and brand-page visits.
+          </p>
+        </div>
+        <div class="funnel-grid">
+          <article class="funnel-card">
+            <div class="funnel-step">1</div>
+            <h3>Reel Reach</h3>
+            <p>We create initial interest by translating destination mood and couple chemistry into short-form language.</p>
+          </article>
+          <article class="funnel-card">
+            <div class="funnel-step">2</div>
+            <h3>Saves & Shares</h3>
+            <p>We encourage saves with useful details like prices, routes, filming ideas, and benefits.</p>
+          </article>
+          <article class="funnel-card">
+            <div class="funnel-step">3</div>
+            <h3>Detailed Blog Information</h3>
+            <p>We expand schedules, booking tips, and reviews that cannot fit into a short reel into blog content.</p>
+          </article>
+          <article class="funnel-card">
+            <div class="funnel-step">4</div>
+            <h3>Inquiries & Conversion</h3>
+            <p>We connect interest to brand pages, booking, or purchase flows through profiles, stories, comments, and links.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contents" aria-labelledby="contents-title">
+        <div class="section-head">
+          <div>
+            <p class="section-label">FEATURED CONTENTS & RESULTS</p>
+            <h2 id="contents-title">Top-Viewed Content & Results</h2>
+          </div>
+          <p>
+            A curated view of high-performing content, including not only views but also shares, saves, comments,
+            and follower conversion.
+          </p>
+        </div>
+        <div class="performance-grid">
+          <article class="performance-card">
+            <div class="performance-thumb has-image"><img src="assets/thumbnail-osaka-budget-hotel.jpg" alt="How to Book a Budget-Friendly Stay in Osaka content thumbnail" loading="lazy"></div>
+            <span class="tag">Branded Content</span>
+            <h3>How to Book a Budget-Friendly Stay in Osaka</h3>
+            <div class="metric-row">
+              <div class="metric"><b>9.278M</b><span>Views</span></div>
+              <div class="metric"><b>1,326</b><span>Comments</span></div>
+            </div>
+            <div class="performance-meta">
+              <span>Likes 14K</span><span>Shares 12K</span><span>Saves 3,422</span>
+            </div>
+            <p>A branded content case that turned practical travel information into strong comments and shares.</p>
+            <div class="performance-actions">
+              <a class="button secondary" href="https://www.instagram.com/reel/DOYU6Z5E5_U/" target="_blank" rel="noreferrer">View Content</a>
+            </div>
+          </article>
+          <article class="performance-card">
+            <div class="performance-thumb has-image"><img src="assets/thumbnail-airplane-couple-reels.jpg" alt="Couple Reels to Film on a Plane content thumbnail" loading="lazy"></div>
+            <span class="tag">Couple Travel Format</span>
+            <h3>Couple Reels to Film on a Plane</h3>
+            <div class="metric-row">
+              <div class="metric"><b>3.281M</b><span>Views</span></div>
+              <div class="metric"><b>48K</b><span>Likes</span></div>
+            </div>
+            <div class="performance-meta">
+              <span>Shares 29K</span><span>Saves 17K</span><span>Comments 137</span>
+            </div>
+            <p>A shareable format with easy-to-follow execution and a clear wow point that drove saves and shares.</p>
+            <div class="performance-actions">
+              <a class="button secondary" href="https://www.instagram.com/reel/DPQy3BCE0Y3/" target="_blank" rel="noreferrer">View Content</a>
+            </div>
+          </article>
+          <article class="performance-card">
+            <div class="performance-thumb has-image"><img src="assets/thumbnail-japan-travel-empathy.jpg" alt="Three Things Every Japan Traveler Relates To content thumbnail" loading="lazy"></div>
+            <span class="tag">Branded Content</span>
+            <h3>Three Things Every Japan Traveler Relates To</h3>
+            <div class="metric-row">
+              <div class="metric"><b>2.9M</b><span>Views</span></div>
+              <div class="metric"><b>2,847</b><span>Likes</span></div>
+            </div>
+            <div class="performance-meta">
+              <span>Shares 581</span><span>Saves 38</span><span>Comments 44</span>
+            </div>
+            <p>A branded content case that naturally exposed the brand through relatable Japan-travel situations.</p>
+            <div class="performance-actions">
+              <a class="button secondary" href="https://www.instagram.com/reel/DWgnvPpgvWu/" target="_blank" rel="noreferrer">View Content</a>
+            </div>
+          </article>
+          <article class="performance-card">
+            <div class="performance-thumb has-image"><img src="assets/thumbnail-hong-kong-no-money.jpg" alt="Why People in Hong Kong Said “No Money” to Koreans? Part 1 content thumbnail" loading="lazy"></div>
+            <span class="tag">Overseas Reaction</span>
+            <h3>Why People in Hong Kong Said “No Money” to Koreans? Part 1</h3>
+            <div class="metric-row">
+              <div class="metric"><b>2.173M</b><span>Views</span></div>
+              <div class="metric"><b>38K</b><span>Likes</span></div>
+            </div>
+            <div class="performance-meta">
+              <span>Comments 972</span><span>Shares 6,874</span><span>Saves 3,111</span>
+            </div>
+            <p>A Hong Kong-targeted content case with strong local reactions, high comment engagement, and exposure on local social channels.</p>
+            <div class="performance-actions">
+              <a class="button secondary" href="https://www.instagram.com/reel/DV0Q0feAkcs/" target="_blank" rel="noreferrer">View Content</a>
+            </div>
+          </article>
+          <article class="performance-card">
+            <div class="performance-thumb has-image"><img src="assets/thumbnail-fukuoka-time-saving.jpg" alt="How to Avoid Wasting Time in Fukuoka content thumbnail" loading="lazy"></div>
+            <span class="tag">Save-Worthy Info</span>
+            <h3>How to Avoid Wasting Time in Fukuoka</h3>
+            <div class="metric-row">
+              <div class="metric"><b>1.668M</b><span>Views</span></div>
+              <div class="metric"><b>34K</b><span>Saves</span></div>
+            </div>
+            <div class="performance-meta">
+              <span>Comments 16K</span><span>Shares 28K</span><span>Approx. 12,700 follower gains</span>
+            </div>
+            <p>A content case where sharing a complete Fukuoka travel guide led to strong shares, saves, comments, and follower conversion.</p>
+            <div class="performance-actions">
+              <a class="button secondary" href="https://www.instagram.com/reel/DGxoHbkT6_x/" target="_blank" rel="noreferrer">View Content</a>
+            </div>
+          </article>
+          <article class="performance-card">
+            <div class="performance-thumb has-image"><img src="assets/thumbnail-obihiro-small-city.jpg" alt="Obihiro small-city Japan travel itinerary content thumbnail" loading="lazy"></div>
+            <span class="tag">Small-City Itinerary</span>
+            <h3>Obihiro Small-City Japan Travel Itinerary</h3>
+            <div class="metric-row">
+              <div class="metric"><b>383K</b><span>Views</span></div>
+              <div class="metric"><b>7,006</b><span>Saves</span></div>
+            </div>
+            <div class="performance-meta">
+              <span>Likes 3,389</span><span>Comments 133</span><span>Shares 7,121</span>
+            </div>
+            <p>An informational travel content case designed for office workers with limited budget and vacation days, introducing a concrete value-focused itinerary that drove saves and shares.</p>
+            <div class="performance-actions">
+              <a class="button secondary" href="https://www.instagram.com/reel/DQg7Hl2E0eD/" target="_blank" rel="noreferrer">View Content</a>
+            </div>
+          </article>
+          <article class="performance-card">
+            <div class="performance-thumb has-image"><img src="assets/thumbnail-airplane-friends.jpg" alt="How to Make Friends on an Airplane content thumbnail" loading="lazy"></div>
+            <span class="tag">Collaboration Content</span>
+            <h3>How to Make Friends on an Airplane</h3>
+            <div class="metric-row">
+              <div class="metric"><b>13.69M</b><span>Views</span></div>
+              <div class="metric"><b>497K</b><span>Likes</span></div>
+            </div>
+            <div class="performance-meta">
+              <span>Shares 103K</span><span>Saves 24K</span><span>Comments 907</span>
+            </div>
+            <p>A collaboration short-form travel case that showed high shareability and broad public reach.</p>
+            <div class="performance-actions">
+              <a class="button secondary" href="https://www.instagram.com/reel/DRXIX5liRl_/" target="_blank" rel="noreferrer">View Content</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="trust" aria-labelledby="trust-title">
+        <div class="section-head">
+          <div>
+            <p class="section-label">FOLLOWER TRUST</p>
+            <h2 id="trust-title">Real Reactions from Followers Planning Trips</h2>
+          </div>
+          <p>
+            Our travel information does not end at views. It leads to saves, itinerary reference, guide sharing,
+            and thankful follower messages.
+          </p>
+        </div>
+        <div class="reaction-carousel">
+          <div class="reaction-controls" aria-label="Move follower reaction images">
+            <button class="reaction-control" type="button" data-reaction-scroll="prev" aria-label="Previous DM">‹</button>
+            <button class="reaction-control" type="button" data-reaction-scroll="next" aria-label="Next DM">›</button>
+          </div>
+          <div class="reaction-grid" data-reaction-carousel>
+            <article class="reaction-card">
+              <div class="reaction-shot"><img src="assets/dm-reaction-01.jpg" alt="DM screenshot from a follower supporting the channel" loading="lazy"></div>
+              <p>A follower response showing steady support for the channel</p>
+            </article>
+            <article class="reaction-card">
+              <div class="reaction-shot"><img src="assets/dm-reaction-02.jpg" alt="DM screenshot showing intent to visit after receiving map and discount information" loading="lazy"></div>
+              <p>A case where shared maps and information led to real visit intent</p>
+            </article>
+            <article class="reaction-card">
+              <div class="reaction-shot"><img src="assets/dm-reaction-03.jpg" alt="DM screenshot thanking us for Osaka travel information" loading="lazy"></div>
+              <p>A response showing our materials helped with pre-trip planning</p>
+            </article>
+            <article class="reaction-card">
+              <div class="reaction-shot"><img src="assets/dm-reaction-04.jpg" alt="DM screenshot thanking us after checking travel planning materials" loading="lazy"></div>
+              <p>A case where saved content led to lodging and trip preparation</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="offers" aria-labelledby="offers-title">
+        <div class="section-head">
+          <div>
+            <p class="section-label">COLLABORATION MENU</p>
+            <h2 id="offers-title">Collaboration Formats</h2>
+          </div>
+          <p>
+            Daero & Nana proposes content that naturally fits into the real travel-planning process.
+            Depending on brand goals, we can design reach-driven, save-driven, or conversion-driven content.
+          </p>
+        </div>
+        <div class="offer-grid">
+          <article class="offer-card">
+            <h3>Reel Campaigns</h3>
+            <p>Deliver the first impression of a destination, brand, or product through short-form content.</p>
+            <ul class="check-list">
+              <li>Couple travel reels</li>
+              <li>Transition videos</li>
+              <li>Natural product/service exposure</li>
+            </ul>
+          </article>
+          <article class="offer-card">
+            <h3>Informational Content</h3>
+            <p>Leave a brand message through travel tips people save and share.</p>
+            <ul class="check-list">
+              <li>Budget/value travel tips</li>
+              <li>Stays, flights, and tour recommendations</li>
+              <li>Benefit and booking information</li>
+            </ul>
+          </article>
+          <article class="offer-card">
+            <h3>Blog Extension</h3>
+            <p>Expand reel-driven interest into detailed reviews and searchable information.</p>
+            <ul class="check-list">
+              <li>Naver Blog reviews</li>
+              <li>Itinerary-style guides</li>
+              <li>Brand-page connection</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="contact-panel">
+          <div>
+            <h2 id="contact-title">Creating warm touchpoints between brands and travelers.</h2>
+            <p>
+              We welcome inquiries for brand collaborations, travel campaigns, reel production, and destination promotion.
+              We propose natural, trustworthy content in Daero & Nana’s tone.
+            </p>
+          </div>
+          <a class="button" href="mailto:dleogh888@naver.com">dleogh888@naver.com</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Travel Creator Portfolio · daero._.nana</span>
+      <span>Portfolio ver.7</span>
+      <span>Contact · dleogh888@naver.com</span>
+      <span>Copyright 2026 daero._.nana. All Rights Reserved.</span>
+    </footer>
+  </div>
+
+  <script>
+    const viewButtons = document.querySelectorAll("[data-view]");
+    const languageLinks = document.querySelectorAll(".toolbar .segmented a[href$='.html'], .toolbar .segmented a[href*='.html?']");
+    const reactionCarousel = document.querySelector("[data-reaction-carousel]");
+    const reactionButtons = document.querySelectorAll("[data-reaction-scroll]");
+    const VIEW_STORAGE_KEY = "daeronanaPortfolioView";
+
+    const getStoredView = () => {
+      try {
+        return localStorage.getItem(VIEW_STORAGE_KEY);
+      } catch (error) {
+        return null;
+      }
+    };
+
+    const setStoredView = (view) => {
+      try {
+        localStorage.setItem(VIEW_STORAGE_KEY, view);
+      } catch (error) {
+        // Storage can be blocked in private modes; URL state still keeps the view.
+      }
+    };
+
+    const normalizeView = (view) => view === "mobile" ? "mobile" : "pc";
+
+    const updateLanguageLinks = (view) => {
+      languageLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const url = new URL(href, window.location.href);
+        url.searchParams.set("view", view);
+        link.setAttribute("href", `${url.pathname.split("/").pop()}${url.search}${url.hash}`);
+      });
+    };
+
+    const applyView = (view, shouldStore = true) => {
+      const activeView = normalizeView(view);
+      const isMobile = activeView === "mobile";
+      document.body.classList.toggle("preview-mobile", isMobile);
+
+      viewButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.view === activeView);
+      });
+
+      updateLanguageLinks(activeView);
+      if (shouldStore) setStoredView(activeView);
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const initialView = normalizeView(params.get("view") || getStoredView() || "pc");
+    applyView(initialView, params.has("view"));
+
+    viewButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyView(button.dataset.view);
+      });
+    });
+
+    reactionButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!reactionCarousel) return;
+
+        const card = reactionCarousel.querySelector(".reaction-card");
+        const gap = 14;
+        const distance = card ? card.getBoundingClientRect().width + gap : 300;
+        const direction = button.dataset.reactionScroll === "next" ? 1 : -1;
+
+        reactionCarousel.scrollBy({
+          left: distance * direction,
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+</body>
+</html>
